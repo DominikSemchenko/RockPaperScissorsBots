@@ -1,7 +1,12 @@
 # Eleven Levels of Rock Paper Scissors AIs
 
 This project lets you challenge a series of increasingly intelligent AI opponents in the game of Rock, Paper, Scissors. Each level uses a different strategy to predict your next move. They train more, the longer you play.
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+## How to use
+* Copy the repository
+* Run any level file (level1.py, level2.py, etc.)
+* Choose a move. (Rock - 1, Paper - 2, Scissors - 3)
+* Play for longer to train the bot
 
 ## Level 1 - The Random AI
 
@@ -44,3 +49,6 @@ The output is not easily predictable. You have to vary your move patterns a lot 
 ---
 
 *Levels 8, 9, 10, and 11 are currently in development.*
+
+## LICENSE
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)

@@ -1,40 +1,29 @@
 import rps
 import random
-from collections import deque
+from collections import deque, Counter
 
 player_data = deque(maxlen=10)
 
-def get_winning_move(move, game):
-    for key, value in game.win_combinations.items():
-        if value == move:
-            win_combination = key
-            return win_combination
+def generate_data():
+    return deque(maxlen=10)
 
-def generate_move(data, game):
-    if len(data) == 0:
+def learn(current_move, data):
+    data.append(current_move)
+
+def generate_move(data, game_engine, get_winning_move_func):
+    if not data:
         return random.randint(1, 3)
-
-    counts = {1: 0, 2: 0, 3: 0}
-    for move in data:
-        counts[move] += 1
-
-    max_value = max(counts.values())
-
-    most_frequent_moves = []
-    for move, count in counts.items():
-        if count == max_value:
-            most_frequent_moves.append(move)
-
-    predicted_move = random.choice(most_frequent_moves)
-
-    return get_winning_move(predicted_move, game)
+    counts = Counter(data)
+    most_common = counts.most_common()
+    max_count = most_common[0][1]
+    best_moves = [move for move, count in most_common if count == max_count]
+    predicted_move = random.choice(best_moves)
+    return get_winning_move_func(predicted_move, game_engine)
 
 if __name__ == "__main__":
     global game, plr1, plr2
     game = rps.RPSGame()
-
     plr1, plr2 = game.get_players()
-    
     print(f"Player 1: {plr1}")
     print(f"Player 2: {plr2}")
 
@@ -76,4 +65,9 @@ if __name__ == "__main__":
         print(f"Player 2 Move: {move2}")
         winner = game.move(plr2, move2)
         if winner:
-            print(f"Winner: {winner}")
+            if winner == plr1:
+                print("Winner: Player")
+            elif winner == plr2:
+                print("Winner: AI")
+            else:
+                print("Tie")

@@ -21,7 +21,7 @@ def generate_data():
     return copy.deepcopy(patterns)
 patterns_data = generate_data()
 
-def learn(prev1, prev2, current_move, data):
+def learn(prev2, prev1, current_move, data):
     if prev1 != 0 and prev2 != 0:
         data[(prev2, prev1)][current_move] += 1
 
@@ -104,7 +104,7 @@ if __name__ == "__main__":
             print("Invalid move")
             continue
         current_move = int(move1)
-        learn(prev1, prev2, current_move, patterns_data)
+        learn(prev2, prev1, current_move, patterns_data)
         prev2 = prev1
         prev1 = current_move
         game.move(plr1, current_move)
@@ -114,4 +114,9 @@ if __name__ == "__main__":
         print(f"Player 2 Move: {move_to_string(move2)} ({move2})")
         winner = game.move(plr2, move2)
         if winner:
-            print(f"Winner: {winner}")
+            if winner == plr1:
+                print("Winner: Player")
+            elif winner == plr2:
+                print("Winner: AI")
+            else:
+                print("Tie")

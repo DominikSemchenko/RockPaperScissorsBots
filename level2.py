@@ -35,4 +35,10 @@ if __name__ == "__main__":
         print(f"Player 2 Move: {move2}")
         winner = game.move(plr2, move2)
         if winner:
-            print(f"Winner: {winner}")
+            if winner == plr1:
+                print("Winner: Player")
+            elif winner == plr2:
+                print("Winner: AI")
+            else:
+                print("Tie")
+            break

@@ -129,4 +129,9 @@ while True:
     print(f"Player 2 Move: {move_to_string(move2)} ({move2})")
     winner = game.move(plr2, move2)
     if winner:
-        print(f"Winner: {winner}")
+        if winner == plr1:
+            print("Winner: Player")
+        elif winner == plr2:
+            print("Winner: AI")
+        else:
+            print("Tie")

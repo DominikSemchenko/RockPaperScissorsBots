@@ -21,9 +21,9 @@ class RPSGame:
 
         if "player1" in self.moves and "player2" in self.moves:
             if self.win_combinations[self.moves["player1"]] == self.moves["player2"]:
-                winner = "player1"
+                winner = self.player1
             elif self.win_combinations[self.moves["player2"]] == self.moves["player1"]:
-                winner = "player2"
+                winner = self.player2
             else:
                 winner = "tie"
 

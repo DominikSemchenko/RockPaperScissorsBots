@@ -19,6 +19,9 @@ This project lets you challenge a series of increasingly intelligent AI opponent
 * Level 8 - The Ensemble AI
 * Level 9 - The Streak AI
 * Level 10 - The Smart Ensemble AI
+
+---
+
 [Read more about different algorithms here](BOTS.md)
 
 ---

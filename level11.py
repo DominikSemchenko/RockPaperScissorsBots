@@ -91,7 +91,7 @@ if __name__ == "__main__":
                     predicted_moves[name] = bot["generate_move"](prev_1, game)
                 elif "L5" in name:
                     predicted_moves[name] = bot["generate_move"](bot["data"], game, get_winning_move)
-                elif name in ["L7_Tactician", "L10_Oracle"]:
+                elif "L7" in name or "L10" in name:
                     predicted_moves[name] = bot["generate_move"](prev_2, prev_1, bot["data"], game)
 
             ai_move = choose_champion_move(predicted_moves, reputation)
@@ -131,7 +131,7 @@ if __name__ == "__main__":
             game.move(plr1, current_move)
             winner = game.move(plr2, ai_move)
 
-            if not winner:
+            if winner == "tie":
                 print("🤝 It's a tie.")
             elif winner == plr1:
                 player_wins += 1

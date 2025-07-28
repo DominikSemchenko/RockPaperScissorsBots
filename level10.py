@@ -98,7 +98,7 @@ if __name__ == "__main__":
             prev_1 = current_move
             game.move(plr1, current_move)
             winner = game.move(plr2, ai_move)
-            if not winner:
+            if winner == "tie":
                 print("🤝 It's a tie.")
             elif winner == plr1:
                 player_wins += 1
